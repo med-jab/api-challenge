@@ -26,6 +26,7 @@ $factory->define(App\Shop::class, function (Faker $faker) {
         'name' => $faker->title,
         'description' => $faker->text(255),
         'distance' => $faker->numberBetween(100, 1000),
-        'image' => $faker->imageUrl(640, 480),
+        'image' => $faker->image(public_path('images/shops'),640, 480, null, false),
+        //'image' => $faker->imageUrl(640, 480),
     ];
 });

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
     use Notifiable;
 
     /**
@@ -24,6 +25,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
+
+    /**
+     * The shops that belong to the user.
+     */
+    public function shops()
+    {
+        return $this->belongsToMany('App\Shop', 'user_shops', 'user_id', 'shop_id');
+    }
+
 }
